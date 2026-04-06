@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: om
+  namespace: ozone-cluster
+spec:
+  serviceName: om
+  replicas: 1
+  selector:
+    matchLabels:
+      app: om
+  template:
+    metadata:
+      labels:
+        app: om
+    spec:
+      containers:
+      - name: om
+        image: apache/ozone:latest
+        command: ["ozone"]
+        args: ["om"]
+        ports:
+        - containerPort: 9862
+        env:
+        - name: OZONE_SCM_NAMES
+          value: scm
+        volumeMounts:
+        - name: data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi

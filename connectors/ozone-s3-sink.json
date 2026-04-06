@@ -1,0 +1,42 @@
+{
+  "name": "ozone-s3-sink",
+  "config": {
+    "connector.class": "io.confluent.connect.s3.S3SinkConnector",
+
+    "tasks.max": "2",
+
+    "topics": "iot-data",
+
+    "s3.bucket.name": "iot-data",
+    "s3.region": "us-east-1",
+    "store.url": "http://s3g:9878",
+
+    "aws.access.key.id": "admin",
+    "aws.secret.access.key": "password",
+
+    "storage.class": "io.confluent.connect.s3.storage.S3Storage",
+    "format.class": "io.confluent.connect.s3.format.parquet.ParquetFormat",
+
+    "partitioner.class": "io.confluent.connect.storage.partitioner.TimeBasedPartitioner",
+    "path.format": "'year'=YYYY/'month'=MM/'day'=dd/'hour'=HH",
+    "locale": "en",
+    "timezone": "UTC",
+
+    "flush.size": "1000",
+    "rotate.interval.ms": "600000",
+
+    "schema.compatibility": "NONE",
+
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+
+    "compression.type": "snappy",
+
+    "behavior.on.null.values": "ignore",
+
+    "errors.tolerance": "all",
+    "errors.log.enable": "true",
+    "errors.log.include.messages": "true"
+  }
+}

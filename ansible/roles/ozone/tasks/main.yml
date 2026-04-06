@@ -1,0 +1,19 @@
+- name: Port forward S3
+  shell: |
+    kubectl port-forward svc/s3g 9878:9878 -n {{ namespace }} &
+    echo $! > /tmp/pf.pid
+  async: 10
+  poll: 0
+
+- name: Wait S3
+  wait_for:
+    host: localhost
+    port: 9878
+    timeout: 30
+
+- name: Create bucket
+  shell: |
+    aws --endpoint-url={{ s3_endpoint }} s3 mb s3://{{ s3_bucket }} || true
+
+- name: Stop port-forward
+  shell: kill $(cat /tmp/pf.pid) || true

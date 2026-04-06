@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: s3g
+  namespace: ozone-cluster
+spec:
+  selector:
+    app: s3g
+  ports:
+  - port: 9878

@@ -1,0 +1,13 @@
+- name: Create namespace
+  command: kubectl apply -f {{ k8s_path }}/namespace.yaml
+
+- name: Apply config
+  command: kubectl apply -f {{ k8s_path }}/config/
+
+- name: Apply core services
+  command: kubectl apply -f {{ item }}
+  loop:
+    - "{{ k8s_path }}/scm/"
+    - "{{ k8s_path }}/om/"
+    - "{{ k8s_path }}/datanode/"
+    - "{{ k8s_path }}/s3g/"

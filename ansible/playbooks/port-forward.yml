@@ -1,0 +1,14 @@
+- name: Port forward services
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Forward S3
+      shell: kubectl port-forward svc/s3g 9878:9878 -n {{ namespace }}
+      async: 0
+      poll: 0
+
+    - name: Forward API
+      shell: kubectl port-forward svc/ozone-api 8000:80 -n {{ namespace }}
+      async: 0
+      poll: 0

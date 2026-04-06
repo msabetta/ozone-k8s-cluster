@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ozone-api
+  namespace: ozone-cluster
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ozone-api
+  template:
+    metadata:
+      labels:
+        app: ozone-api
+    spec:
+      containers:
+      - name: api
+        image: ozone-api:latest
+        ports:
+        - containerPort: 8000

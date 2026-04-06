@@ -1,0 +1,5 @@
+- name: Deploy API
+  command: kubectl apply -f {{ k8s_path }}/api/
+
+- name: Wait API ready
+  command: kubectl wait --for=condition=ready pod -l app=ozone-api -n {{ namespace }} --timeout=120s

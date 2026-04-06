@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ozone-api
+  namespace: ozone-cluster
+spec:
+  rules:
+  - host: ozone.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ozone-api
+            port:
+              number: 80

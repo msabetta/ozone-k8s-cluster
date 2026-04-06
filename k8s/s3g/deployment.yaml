@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: s3g
+  namespace: ozone-cluster
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: s3g
+  template:
+    metadata:
+      labels:
+        app: s3g
+    spec:
+      containers:
+      - name: s3g
+        image: apache/ozone:latest
+        command: ["ozone"]
+        args: ["s3g"]
+        ports:
+        - containerPort: 9878
+        env:
+        - name: OZONE_OM_ADDRESS
+          value: om

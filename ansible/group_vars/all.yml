@@ -1,0 +1,8 @@
+namespace: ozone-cluster
+
+k8s_path: "../k8s"
+
+s3_endpoint: "http://localhost:9878"
+s3_bucket: "iot-data"
+
+api_url: "http://localhost:8000"

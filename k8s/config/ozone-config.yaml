@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ozone-config
+  namespace: ozone-cluster
+data:
+  ozone-site.xml: |
+    <configuration>
+      <property>
+        <name>ozone.metadata.dirs</name>
+        <value>/data/metadata</value>
+      </property>
+      <property>
+        <name>ozone.scm.names</name>
+        <value>scm</value>
+      </property>
+      <property>
+        <name>ozone.om.address</name>
+        <value>om</value>
+      </property>
+    </configuration>

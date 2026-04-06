@@ -1,0 +1,10 @@
+- name: Destroy platform
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Delete resources
+      command: kubectl delete -f {{ k8s_path }}/ --ignore-not-found
+
+    - name: Delete namespace
+      command: kubectl delete namespace {{ namespace }} --ignore-not-found

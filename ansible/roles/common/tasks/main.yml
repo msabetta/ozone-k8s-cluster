@@ -1,0 +1,9 @@
+- name: Check kubectl
+  command: kubectl version --client
+  register: kubectl_check
+  failed_when: kubectl_check.rc != 0
+
+- name: Check docker
+  command: docker --version
+  register: docker_check
+  failed_when: docker_check.rc != 0

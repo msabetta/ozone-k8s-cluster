@@ -1,0 +1,6 @@
+- name: Init Ozone
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+    - ozone

@@ -1,0 +1,2 @@
+- name: Deploy Kafka
+  command: kubectl apply -f {{ k8s_path }}/kafka/

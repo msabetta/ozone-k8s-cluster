@@ -1,0 +1,9 @@
+- name: Deploy full platform
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+    - common
+    - k8s
+    - kafka
+    - api
