@@ -5,7 +5,7 @@ metadata:
   namespace: ozone-cluster
 spec:
   serviceName: datanode
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: datanode
@@ -16,22 +16,18 @@ spec:
     spec:
       containers:
       - name: datanode
-        image: apache/ozone:latest
+        image: apache/ozone:2.0.0
         command: ["ozone"]
         args: ["datanode"]
-        ports:
-        - containerPort: 9864
-        env:
-        - name: OZONE_SCM_NAMES
-          value: scm
         volumeMounts:
         - name: data
           mountPath: /data
-        - name: metadata
-          mountPath: /data/ozone/meta
+        - name: ozone-config
+          mountPath: /opt/hadoop/etc/hadoop
       volumes:
-        - name: metadata
-          emptyDir: {}
+      - name: ozone-config
+        configMap:
+          name: ozone-config
   volumeClaimTemplates:
   - metadata:
       name: data
@@ -39,4 +35,4 @@ spec:
       accessModes: ["ReadWriteOnce"]
       resources:
         requests:
-          storage: 20Gi
+          storage: 10Gi

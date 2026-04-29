@@ -16,22 +16,18 @@ spec:
     spec:
       containers:
       - name: om
-        image: apache/ozone:latest
+        image: apache/ozone:2.0.0
         command: ["ozone"]
         args: ["om"]
-        ports:
-        - containerPort: 9862
-        env:
-        - name: OZONE_SCM_NAMES
-          value: scm
         volumeMounts:
         - name: data
           mountPath: /data
-        - name: metadata
-          mountPath: /data/ozone/meta
+        - name: ozone-config
+          mountPath: /opt/hadoop/etc/hadoop
       volumes:
-        - name: metadata
-          emptyDir: {}  
+      - name: ozone-config
+        configMap:
+          name: ozone-config
   volumeClaimTemplates:
   - metadata:
       name: data
@@ -39,4 +35,4 @@ spec:
       accessModes: ["ReadWriteOnce"]
       resources:
         requests:
-          storage: 10Gi
+          storage: 5Gi

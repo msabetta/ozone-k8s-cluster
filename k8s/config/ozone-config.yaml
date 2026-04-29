@@ -6,20 +6,30 @@ metadata:
 data:
   ozone-site.xml: |
     <configuration>
+
       <property>
         <name>ozone.metadata.dirs</name>
         <value>/data/metadata</value>
       </property>
-      <property>
-        <name>ozone.scm.names</name>
-        <value>scm</value>
-      </property>
-      <property>
-        <name>ozone.om.address</name>
-        <value>om</value>
-      </property>
+
       <property>
         <name>hdds.datanode.dir</name>
         <value>/data/datanode</value>
       </property>
+
+      <property>
+        <name>ozone.scm.names</name>
+        <value>scm</value>
+      </property>
+
+      <property>
+        <name>ozone.om.address</name>
+        <value>om</value>
+      </property>
+
+      <property>
+        <name>ozone.replication</name>
+        <value>1</value>
+      </property>
+
     </configuration>

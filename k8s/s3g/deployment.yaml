@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: s3g
-          image: apache/ozone:latest
+          image: apache/ozone:2.0.0
           command: ["ozone"]
           args: ["s3g"]
           ports:

@@ -4,8 +4,10 @@ metadata:
   name: scm
   namespace: ozone-cluster
 spec:
+  clusterIP: None
   selector:
     app: scm
   ports:
-    - port: 9876
-      targetPort: 9876
+  - port: 9860
+    targetPort: 9860
+    name: scm-port

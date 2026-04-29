@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ozone-init
+  namespace: ozone-cluster
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: init
+        image: apache/ozone:2.0.0
+        command:
+        - /bin/sh
+        - -c
+        - |
+          echo "⏳ Attendo SCM..."
+          sleep 20
+
+          echo "🚀 Init SCM"
+          ozone scm --init || true
+
+          echo "⏳ Attendo OM..."
+          sleep 10
+
+          echo "🚀 Init OM"
+          ozone om --init || true

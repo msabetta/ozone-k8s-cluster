@@ -4,6 +4,7 @@ metadata:
   name: om
   namespace: ozone-cluster
 spec:
+  clusterIP: None
   selector:
     app: om
   ports:
