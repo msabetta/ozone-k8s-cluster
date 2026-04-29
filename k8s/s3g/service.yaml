@@ -4,7 +4,6 @@ metadata:
   name: s3g
   namespace: ozone-cluster
 spec:
-  clusterIP: None
   selector:
     app: s3g
   ports:
