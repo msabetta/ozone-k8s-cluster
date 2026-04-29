@@ -34,6 +34,6 @@ kubectl wait --for=condition=ready pod -l app=scm -n $NAMESPACE --timeout=180s
 kubectl wait --for=condition=ready pod -l app=om -n $NAMESPACE --timeout=180s
 kubectl wait --for=condition=ready pod -l app=datanode -n $NAMESPACE --timeout=180s
 kubectl wait --for=condition=ready pod -l app=s3g -n $NAMESPACE --timeout=180s
-kubectl wait --for=condition=ready pod -l app=api -n $NAMESPACE --timeout=180s
+kubectl wait --for=condition=ready pod -l app=ozone-api -n $NAMESPACE --timeout=180s
 
 echo "✅ Deploy completato!"
