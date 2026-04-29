@@ -12,27 +12,22 @@ echo "📦 Creazione namespace..."
 kubectl apply -f $PERCORSO_CORRENTE/k8s/namespace.yaml
 
 echo "⚙️ ConfigMap..."
-kubectl apply -f $PERCORSO_CORRENTE/k8s/config/ozone-config.yaml
+kubectl apply -f $PERCORSO_CORRENTE/k8s/config/
 
 echo "🧠 SCM..."
-kubectl apply -f $PERCORSO_CORRENTE/k8s/scm/deployment.yaml
-kubectl apply -f $PERCORSO_CORRENTE/k8s/scm/service.yaml
+kubectl apply -f $PERCORSO_CORRENTE/k8s/scm/
 
 echo "🧾 OM..."
-kubectl apply -f $PERCORSO_CORRENTE/k8s/om/deployment.yaml
-kubectl apply -f $PERCORSO_CORRENTE/k8s/om/service.yaml
+kubectl apply -f $PERCORSO_CORRENTE/k8s/om/
 
 echo "💾 DataNode..."
-kubectl apply -f $PERCORSO_CORRENTE/k8s/datanode/deployment.yaml
-kubectl apply -f $PERCORSO_CORRENTE/k8s/datanode/service.yaml
+kubectl apply -f $PERCORSO_CORRENTE/k8s/datanode/
 
 echo "🌐 S3 Gateway..."
-kubectl apply -f $PERCORSO_CORRENTE/k8s/s3g/deployment.yaml
-kubectl apply -f $PERCORSO_CORRENTE/k8s/s3g/service.yaml
+kubectl apply -f $PERCORSO_CORRENTE/k8s/s3g/
 
 echo "🔌 API..."
-kubectl apply -f $PERCORSO_CORRENTE/k8s/api/deployment.yaml
-kubectl apply -f $PERCORSO_CORRENTE/k8s/api/service.yaml
+kubectl apply -f $PERCORSO_CORRENTE/k8s/api/
 
 echo "⏳ Attendo che i pod siano pronti..."
 kubectl wait --for=condition=ready pod -l app=scm -n $NAMESPACE --timeout=180s

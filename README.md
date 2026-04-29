@@ -82,6 +82,7 @@ make build
 ## 2. Deploy cluster
 
 ```bash
+minikube start --memory=4096 --cpus=2
 make deploy
 ```
 
