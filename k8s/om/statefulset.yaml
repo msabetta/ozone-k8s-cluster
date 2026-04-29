@@ -27,6 +27,8 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /data
+        - name: metadata
+          mountPath: /data/ozone/meta  
   volumeClaimTemplates:
   - metadata:
       name: data

@@ -30,7 +30,7 @@ deploy:
 
 destroy:
 	@echo "💣 Destroy cluster..."
-	./scripts/2.teardown.sh
+	./scripts/4.teardown.sh
 
 # =========================
 # Docker

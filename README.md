@@ -74,6 +74,7 @@ API_PORT=8000
 ## 1. Build API
 
 ```bash
+eval $(minikube docker-env)
 make build
 ```
 
