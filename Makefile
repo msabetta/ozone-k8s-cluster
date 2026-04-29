@@ -55,7 +55,7 @@ init:
 # =========================
 port-forward:
 	@echo "🔌 Port forward..."
-	./scripts/4.port-forward.sh
+	./scripts/2.port-forward.sh
 
 # =========================
 # Debug
