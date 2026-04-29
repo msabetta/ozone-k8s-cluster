@@ -4,8 +4,8 @@ metadata:
   name: om
   namespace: ozone-cluster
 spec:
-  clusterIP: None
   selector:
     app: om
   ports:
-  - port: 9862
+    - port: 9862
+      targetPort: 9862

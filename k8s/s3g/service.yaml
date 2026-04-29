@@ -7,4 +7,6 @@ spec:
   selector:
     app: s3g
   ports:
-  - port: 9878
+    - port: 9878
+      targetPort: 9878
+  type: NodePort

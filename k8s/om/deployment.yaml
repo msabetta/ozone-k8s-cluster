@@ -1,30 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: s3g
+  name: om
   namespace: ozone-cluster
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: s3g
+      app: om
   template:
     metadata:
       labels:
-        app: s3g
+        app: om
     spec:
       containers:
-        - name: s3g
+        - name: om
           image: apache/ozone:latest
           command: ["ozone"]
-          args: ["s3g"]
+          args: ["om"]
           ports:
-            - containerPort: 9878
+            - containerPort: 9862
           env:
-            - name: OZONE_OM_ADDRESS
-              value: "om:9862"
-            - name: OZONE_S3G_HTTP_ADDRESS
-              value: "0.0.0.0:9878"
+            - name: OZONE_SCM_NAMES
+              value: "scm"
             - name: OZONE_HEAP_SIZE
               value: "256m"
           resources:

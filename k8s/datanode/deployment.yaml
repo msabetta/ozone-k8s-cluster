@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datanode
+  namespace: ozone-cluster
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: datanode
+  template:
+    metadata:
+      labels:
+        app: datanode
+    spec:
+      containers:
+        - name: datanode
+          image: apache/ozone:latest
+          command: ["ozone"]
+          args: ["datanode"]
+          env:
+            - name: OZONE_SCM_NAMES
+              value: "scm"
+            - name: OZONE_OM_ADDRESS
+              value: "om:9862"
+            - name: OZONE_REPLICATION
+              value: "1"
+            - name: OZONE_HEAP_SIZE
+              value: "512m"
+          volumeMounts:
+            - mountPath: /data
+              name: data
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+      volumes:
+        - name: data
+          emptyDir: {}
