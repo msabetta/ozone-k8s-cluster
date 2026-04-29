@@ -18,4 +18,8 @@ data:
         <name>ozone.om.address</name>
         <value>om</value>
       </property>
+      <property>
+        <name>hdds.datanode.dir</name>
+        <value>/data/datanode</value>
+      </property>
     </configuration>
