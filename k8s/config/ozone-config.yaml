@@ -32,4 +32,10 @@ data:
         <value>1</value>
       </property>
 
+      <property>
+        <name>ozone.om.db.dirs</name>
+        <value>/data/1/om-db</value>
+        <description>The directory where OM stores its RocksDB metadata.</description>
+      </property>
+
     </configuration>
