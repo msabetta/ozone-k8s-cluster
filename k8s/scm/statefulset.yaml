@@ -23,11 +23,13 @@ spec:
         - name: data
           mountPath: /data
         - name: ozone-config
-          mountPath: /opt/hadoop/etc/hadoop
+          mountPath: /opt/hadoop/etc/hadoop/ozone-site.xml
+          subPath: ozone-site.xml
       volumes:
       - name: ozone-config
         configMap:
           name: ozone-config
+      
   volumeClaimTemplates:
   - metadata:
       name: data
