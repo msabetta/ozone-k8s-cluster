@@ -5,27 +5,29 @@ set -e
 echo "🚀 Deploy cluster Ozone..."
 
 NAMESPACE="ozone-cluster"
+PERCORSO_CORRENTE=$(pwd)
+
 
 echo "📦 Creazione namespace..."
-kubectl apply -f k8s/namespace.yaml
+kubectl apply -f $PERCORSO_CORRENTE/k8s/namespace.yaml
 
 echo "⚙️ ConfigMap..."
-kubectl apply -f k8s/config/
+kubectl apply -f $PERCORSO_CORRENTE/k8s/config/
 
 echo "🧠 SCM..."
-kubectl apply -f k8s/scm/
+kubectl apply -f $PERCORSO_CORRENTE/k8s/scm/
 
 echo "🧾 OM..."
-kubectl apply -f k8s/om/
+kubectl apply -f $PERCORSO_CORRENTE/k8s/om/
 
 echo "💾 DataNode..."
-kubectl apply -f k8s/datanode/
+kubectl apply -f $PERCORSO_CORRENTE/k8s/datanode/
 
 echo "🌐 S3 Gateway..."
-kubectl apply -f k8s/s3g/
+kubectl apply -f $PERCORSO_CORRENTE/k8s/s3g/
 
 echo "🔌 API..."
-kubectl apply -f k8s/api/
+kubectl apply -f $PERCORSO_CORRENTE/k8s/api/
 
 echo "⏳ Attendo che i pod siano pronti..."
 kubectl wait --for=condition=ready pod -l app=scm -n $NAMESPACE --timeout=180s

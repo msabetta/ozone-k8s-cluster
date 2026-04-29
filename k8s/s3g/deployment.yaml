@@ -14,12 +14,21 @@ spec:
         app: s3g
     spec:
       containers:
-      - name: s3g
-        image: apache/ozone:latest
-        command: ["ozone"]
-        args: ["s3g"]
-        ports:
-        - containerPort: 9878
-        env:
-        - name: OZONE_OM_ADDRESS
-          value: om
+        - name: s3g
+          image: apache/ozone:latest
+          command: ["ozone"]
+          args: ["s3g"]
+          ports:
+            - containerPort: 9878
+          env:
+            - name: OZONE_OM_ADDRESS
+              value: "om:9862"
+            - name: OZONE_S3G_HTTP_ADDRESS
+              value: "0.0.0.0:9878"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"

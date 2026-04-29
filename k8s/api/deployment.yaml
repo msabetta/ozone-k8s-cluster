@@ -18,3 +18,17 @@ spec:
         image: ozone-api:latest
         ports:
         - containerPort: 8000
+        env:
+        - name: OZONE_OM_ADDRESS
+          value: "om:9862"
+        - name: OZONE_SCM_ADDRESS
+          value: "scm:9861"
+        - name: OZONE_S3G_ADDRESS
+          value: "s3g:9878"
+        resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"

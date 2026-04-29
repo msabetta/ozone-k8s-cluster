@@ -26,11 +26,11 @@ help:
 # =========================
 deploy:
 	@echo "🚀 Deploy cluster..."
-	./scripts/deploy.sh
+	./scripts/1.deploy.sh
 
 destroy:
 	@echo "💣 Destroy cluster..."
-	./scripts/teardown.sh
+	./scripts/2.teardown.sh
 
 # =========================
 # Docker
@@ -48,14 +48,14 @@ push:
 # =========================
 init:
 	@echo "🔧 Init Ozone..."
-	./scripts/init-ozone.sh
+	./scripts/3.init-ozone.sh
 
 # =========================
 # Access
 # =========================
 port-forward:
 	@echo "🔌 Port forward..."
-	./scripts/port-forward.sh
+	./scripts/4.port-forward.sh
 
 # =========================
 # Debug

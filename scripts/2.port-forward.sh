@@ -4,6 +4,7 @@ echo "🔌 Avvio port-forward..."
 
 NAMESPACE="ozone-cluster"
 
+
 echo "🌐 S3 Gateway → localhost:9878"
 kubectl port-forward svc/s3g 9878:9878 -n $NAMESPACE &
 
