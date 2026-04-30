@@ -13,7 +13,7 @@ s3 = boto3.client(
     aws_access_key_id=S3_ACCESS_KEY,
     aws_secret_access_key=S3_SECRET_KEY,
     config=Config(signature_version="s3v4"),
-    region_name="us-east-1"
+    region_name="eu-south-1"
 )
 
 def upload_file(name: str, data: bytes):

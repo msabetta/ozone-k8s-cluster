@@ -83,6 +83,7 @@ make build
 
 ```bash
 minikube start --memory=4096 --cpus=2
+minikube image load ozone-api:latest
 make deploy
 ```
 
