@@ -16,6 +16,7 @@ spec:
       containers:
       - name: api
         image: ozone-api:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 8000
         env:

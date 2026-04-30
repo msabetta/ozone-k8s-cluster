@@ -12,7 +12,7 @@ echo "📦 Creazione namespace..."
 kubectl apply -f $PERCORSO_CORRENTE/k8s/namespace.yaml
 
 echo "⚙️ ConfigMap..."
-kubectl apply -f $PERCORSO_CORRENTE/k8s/config/
+kubectl apply -f $PERCORSO_CORRENTE/k8s/config/ozone-config.yaml
 
 echo "🧠 SCM..."
 kubectl apply -f $PERCORSO_CORRENTE/k8s/scm/
