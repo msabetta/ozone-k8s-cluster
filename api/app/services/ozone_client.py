@@ -1,6 +1,6 @@
 import boto3
 from botocore.client import Config
-from app.config import (
+from config import (
     S3_ENDPOINT,
     S3_ACCESS_KEY,
     S3_SECRET_KEY,
